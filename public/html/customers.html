@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Customer Maintenance</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #57c4a7;">
+    <a class="navbar-brand" href="#">EX</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-item nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="customers.html">Customer Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrders.html">Customer Order Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrderItems.html">Order Items Maintenance</a>
+          <a class="nav-item nav-link" href="employees.html">Employee Maintenance</a>
+          <a class="nav-item nav-link" href="products.html">Product Maintenance</a>
+          <a class="nav-item nav-link" href="newOrder.html">New Customer Order</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" id="subscribe-container">
+    <h2>Subscribe</h2>
+    <br/ >
+    <p>Never miss an event! <br/> Please fill out the form below and submit to receive notifications for all upcoming events.</p>
+    <form>
+        <div>
+        <label for="nameInput"> Name:</label>
+        <input type="text" class="form-control" name="nameInput" id="nameInput">
+        </div>
+        <br/ >
+        <div>
+        <label for="emailInput"> Email: </label>
+        <input type="email" class="form-control" name="emailInput" id="emailInput">
+        </div>
+        <br/ >
+        <p>How did you hear about this event?</p>
+        <div>
+        <input type="radio" name="survey" value="facebook" id="facebook"/>
+        <label for="facebook">Facebook Group</label>
+        </div>
+        <div>
+        <input type="radio" name="survey" value="otherEvent" id="AFK"/>
+        <label for="AFK">AFK or Other Game Event</label>
+        </div>
+        <div>
+        <input type="radio" name="survey" value="priorEvent" id="prior"/>
+        <label for "prior">Prior Killer Game Swap Event</label>
+        </div>
+        <br/ >
+        <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+    </form>
+    <br/ >
+    <div>
+      <p>
+        <span id="successMsg"></span>
+      </p>
+    </div>
+  	<script src="mailList.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  </body>
