@@ -1,0 +1,35 @@
+.carousel-inner>.carousel-item>img, .carousel-inner>.carousel-item>a>img {
+    max-height: 480px;
+    width: 100%;
+    object-fit: contain;
+}
+
+#vendor-container {
+	padding-top: 50px;
+	padding-left: 70px;
+}
+
+#carouselKGS {
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+#subscribe-container {
+	padding-top: 50px;
+	padding-left: 70px;
+}
+
+#nameInput, #emailInput {
+	width: 50%;
+}
+
+#faq-container {
+	padding-top: 50px;
+	padding-left: 70px;
+}
+
+#youtube {
+	overflow: scroll;
+	max-height: 600px;
+	max-width: 640px;
+}
