@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <title>Customer Order Maintenance</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -25,38 +25,24 @@
       </div>
     </div>
   </nav>
-  <br/ >
-  <div class="container" id="customer-order-container">
+
+  <div class="container-fluid" id="subscribe-container">
+    <h2>Customer Orders</h2>
     <br/ >
-    <p>Enter a new customer order</p>
-    <form>
-        <div class = row>
-          <div class = "col">
-            <input type="text" class="form-control" placeholder="Order Date" name="orderDateInput" id="orderDateInput">
-          </div>
-          <div class = "col">
-            <input type="text" class="form-control" placeholder="Customer ID" name="customerIdInput" id="customerIdInput">
-          </div>
-          <div class = "col">
-            <input type="text" class="form-control" placeholder="Employee ID" name="employeeIdInput" id="employeeIdInput">
-          </div>
-          <div class = "col">
-            <input type="text" class="form-control" placeholder="Payment Method" name="paymentMethodInput" id="paymentMethodInput">
-          </div>
-          <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
-        </div>
-    </form>
+    <p>List of ElectroniX's customer orders</p>
+    <div>
+    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
     <br/ >
-    <p>Delete an existing customer order</p>
-  <table class="table">
+    <br/ >
+  <table class="table table-striped" id="customerOrderTable">
   <thead>
     <tr>
-      <th scope="col">Order ID</th>
-      <th scope="col">Order Date</th>
-      <th scope="col">Customer ID</th>
-      <th scope="col">Employee ID</th>
-      <th scope="col">Payment Method</th>
-      <th scope="col"></th>
+      <th>Order ID</th>
+      <th>Order Date</th>
+      <th>Customer ID</th>
+      <th>Employee ID</th>
+      <th>Payment Method</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -86,12 +72,46 @@
     </tr>
   </tbody>
   </table>
-  </div>
-    <div>
-      <p>
-        <span id="successMsg"></span>
-      </p>
     </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="myModalAdd" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title">Add Customer</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div>
+          <div>
+          <input type="date" class="form-control" placeholder="Order Date" name="orderDateInput" id="orderDateInput">
+          </div>
+          <div>
+          <input type="text" class="form-control" placeholder="Customer ID" name="customerIdInput" id="customerIdInput">
+          </div>
+          <div >
+          <input type="text" class="form-control" placeholder="Employee ID" name="employeeIdInput" id="employeeIdInput">
+          </div>
+          <div>
+          <input type="text" class="form-control" placeholder="Payment Method" name="paymentMethodInput" id="paymentMethodInput">
+          </div>
+          </br>
+          <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    </div>
+  </div>
+
   	<script src="mailList.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
