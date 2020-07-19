@@ -26,36 +26,25 @@
     </div>
   </nav>
   <div class="container-fluid" id="subscribe-container">
-    <h2>Subscribe</h2>
-    <br/ >
-    <p>Never miss an event! <br/> Please fill out the form below and submit to receive notifications for all upcoming events.</p>
+    <h2>Customer Order</h2>
     <form>
-        <div>
-        <label for="nameInput"> Name:</label>
-        <input type="text" class="form-control" name="nameInput" id="nameInput">
+        <div class = row>
+          <div class = "col">
+            <input type="text" class="form-control" placeholder="Order Date" name="orderDateInput" id="orderDateInput">
+          </div>
+          <div class = "col">
+            <input type="text" class="form-control" placeholder="Customer ID" name="customerIdInput" id="customerIdInput">
+          </div>
+          <div class = "col">
+            <input type="text" class="form-control" placeholder="Employee ID" name="employeeIdInput" id="employeeIdInput">
+          </div>
+          <div class = "col">
+            <input type="text" class="form-control" placeholder="Payment Method" name="paymentMethodInput" id="paymentMethodInput">
+          </div>
+          <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
         </div>
-        <br/ >
-        <div>
-        <label for="emailInput"> Email: </label>
-        <input type="email" class="form-control" name="emailInput" id="emailInput">
-        </div>
-        <br/ >
-        <p>How did you hear about this event?</p>
-        <div>
-        <input type="radio" name="survey" value="facebook" id="facebook"/>
-        <label for="facebook">Facebook Group</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="otherEvent" id="AFK"/>
-        <label for="AFK">AFK or Other Game Event</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="priorEvent" id="prior"/>
-        <label for "prior">Prior Killer Game Swap Event</label>
-        </div>
-        <br/ >
-        <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
     </form>
+  </div>
     <br/ >
     <div>
       <p>
