@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Product Maintenance</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body>
@@ -26,44 +26,132 @@
     </div>
   </nav>
   <div class="container-fluid" id="subscribe-container">
-    <h2>Subscribe</h2>
+    <h2>Products</h2>
     <br/ >
-    <p>Never miss an event! <br/> Please fill out the form below and submit to receive notifications for all upcoming events.</p>
-    <form>
-        <div>
-        <label for="nameInput"> Name:</label>
-        <input type="text" class="form-control" name="nameInput" id="nameInput">
+    <p>List of ElectroniX's products</p>
+	<div>
+		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
+		</br>
+		</br>
+		<table class="table table-striped" id="mytable">
+		  <thead>
+			<tr>
+			  <th>Product ID</th>
+			  <th>Product Description</th>
+			  <th>Sale Price</th>
+			  <th>Unit Cost</th>
+			  <th>Action</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			 <!--{{#each results}}-->
+			<tr>
+			  <td>1</td>
+			  <td>Computer</td>
+			  <td>$800</td>
+			  <td>$500</td>
+			  <td>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+			  </td>
+			  
+			</tr>
+			<tr>
+			  <td>2</td>
+			  <td>Laptop</td>
+			  <td>$700</td>
+			  <td>$400</td>
+			  <td>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+			  </td>
+			</tr>
+			<tr>
+			  <td>3</td>
+			  <td>Cellphone</td>
+			  <td>$600</td>
+			  <td>$300</td>
+			  <td>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+			  </td>
+			</tr>
+			<!--{{/each}}-->
+		  </tbody>
+		</table>
+	</div>
+  </div>
+  
+  <!-- Modal -->
+	<div id="myModalAdd" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h4 class="modal-title">Add Product</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+				<div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Product Description" name="productDescriptionInput" id="productDescriptionInput">
+				  </div>
+				  </br>
+				  <div>
+					<input type="text" class="form-control" placeholder="Sale Price" name="salePriceInput" id="salePriceInput">
+				  </div>
+				  </br>
+				  <div >
+					<input type="text" class="form-control" placeholder="Unit Cost" name="unitCostInput" id="unitCostInput">
+				  </div>
+				  </br>
+				  <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+				</div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	 <!-- Modal Update Product-->
+	<form action="/update" method="post">
+       <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                  <input type="text" name="product_description" class="form-control product_description" placeholder="Product Description" required>
+              </div>
+ 
+              <div class="form-group">
+                  <input type="text" name="sale_price" class="form-control sale_price" placeholder="Sale Price" required>
+              </div>
+			  <div class="form-group">
+                  <input type="text" name="unit_cost" class="form-control unit_cost" placeholder="Unit Cost" required>
+              </div>
+ 
+            </div>
+            <div class="modal-footer">
+              <input type="hidden" name="id" class="product_id">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </div>
         </div>
-        <br/ >
-        <div>
-        <label for="emailInput"> Email: </label>
-        <input type="email" class="form-control" name="emailInput" id="emailInput">
-        </div>
-        <br/ >
-        <p>How did you hear about this event?</p>
-        <div>
-        <input type="radio" name="survey" value="facebook" id="facebook"/>
-        <label for="facebook">Facebook Group</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="otherEvent" id="AFK"/>
-        <label for="AFK">AFK or Other Game Event</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="priorEvent" id="prior"/>
-        <label for "prior">Prior Killer Game Swap Event</label>
-        </div>
-        <br/ >
-        <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
-    </form>
-    <br/ >
-    <div>
-      <p>
-        <span id="successMsg"></span>
-      </p>
-    </div>
+       </div>
+	</form>
+	
   	<script src="mailList.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   </body>
+</html>
