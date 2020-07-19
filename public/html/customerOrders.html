@@ -25,8 +25,10 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid" id="subscribe-container">
-    <h2>Customer Order</h2>
+  <br/ >
+  <div class="container" id="customer-order-container">
+    <br/ >
+    <p>Enter a new customer order</p>
     <form>
         <div class = row>
           <div class = "col">
@@ -44,8 +46,47 @@
           <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
         </div>
     </form>
-  </div>
     <br/ >
+    <p>Delete an existing customer order</p>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Order Date</th>
+      <th scope="col">Customer ID</th>
+      <th scope="col">Employee ID</th>
+      <th scope="col">Payment Method</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2020-06-30</td>
+      <td>5</td>
+      <td>6</td>
+      <td>Credit Card</td>
+      <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2020-07-02</td>
+      <td>3</td>
+      <td>1</td>
+      <td>Cash</td>
+      <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2020-07-05</td>
+      <td>1</td>
+      <td></td>
+      <td>Google Wallet</td>
+      <td><button class="btn btn-sm btn-danger delete">Delete</button></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
     <div>
       <p>
         <span id="successMsg"></span>
