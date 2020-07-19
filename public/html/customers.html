@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <title>Customer Maintenance</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
+	
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #57c4a7;">
@@ -25,45 +26,106 @@
       </div>
     </div>
   </nav>
+  
   <div class="container-fluid" id="subscribe-container">
-    <h2>Subscribe</h2>
+    <h2>Customers</h2>
     <br/ >
-    <p>Never miss an event! <br/> Please fill out the form below and submit to receive notifications for all upcoming events.</p>
-    <form>
-        <div>
-        <label for="nameInput"> Name:</label>
-        <input type="text" class="form-control" name="nameInput" id="nameInput">
-        </div>
-        <br/ >
-        <div>
-        <label for="emailInput"> Email: </label>
-        <input type="email" class="form-control" name="emailInput" id="emailInput">
-        </div>
-        <br/ >
-        <p>How did you hear about this event?</p>
-        <div>
-        <input type="radio" name="survey" value="facebook" id="facebook"/>
-        <label for="facebook">Facebook Group</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="otherEvent" id="AFK"/>
-        <label for="AFK">AFK or Other Game Event</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="priorEvent" id="prior"/>
-        <label for "prior">Prior Killer Game Swap Event</label>
-        </div>
-        <br/ >
-        <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
-    </form>
-    <br/ >
-    <div>
-      <p>
-        <span id="successMsg"></span>
-      </p>
-    </div>
+    <p>List of ElectroniX's customers</p>
+	<div>
+        <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
+		<table class="table table-striped" id="mytable">
+		  <thead>
+			<tr>
+			  <th>Customer ID</th>
+			  <th>First Name</th>
+			  <th>Last Name</th>
+			  <th>Email Address</th>
+			  <th>Phone Number</th>
+			  <th>Street Address1</th>
+			  <th>Street Address2</th>
+			  <th>City</th>
+			  <th>State</th>
+			  <th>Zip</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			 {{#each results}}
+			<tr>
+			  <td>{{ customer_id }}</td>
+			  <td>{{ customer_firstname }}</td>
+			  <td>{{ customer_lastname }}</td>
+			  <td>{{ email_addr }}</td>
+			  <td>{{ phone_nr }}</td>
+			  <td>{{ street_addr1 }}</td>
+			  <td>{{ street_addr2 }}</td>
+			  <td>{{ city_name }}</td>
+			  <td>{{ state_cd }}</td>
+			  <td>{{ zip_cd }}</td>
+			  <td>
+				<a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ product_id }}" data-product_name="{{ product_name }}" data-product_price="{{ product_price }}">Edit</a>
+				<a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ product_id }}">Delete</a>
+			  </td>
+			</tr>
+			{{/each}}
+		  </tbody>
+		</table>
+	</div>
+	</div>
+
+	<!-- Modal -->
+	<div id="myModalAdd" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h4 class="modal-title">Add Customer</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+				<div>
+				  <div>
+					<input type="text" class="form-control" placeholder="First Name" name="firstNameInput" id="firstNameInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Last Name" name="lastNameInput" id="lastNameInput">
+				  </div>
+				  <div >
+					<input type="text" class="form-control" placeholder="Email Address" name="emailAddressInput" id="emailAddressInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Phone Number" name="phoneNumberInput" id="phoneNumberInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Street Address1" name="streetAddress1Input" id="streetAddress1Input">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Street Address2" name="streetAddress2Input" id="streetAddress2Input">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="City" name="cityInput" id="cityInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="State" name="stateInput" id="stateInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Zip" name="zipInput" id="zipInput">
+				  </div>
+				  </br>
+				  <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+				</div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
   	<script src="mailList.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-  </body>
+	<body>
+</html>
