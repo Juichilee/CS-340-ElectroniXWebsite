@@ -26,42 +26,110 @@
     </div>
   </nav>
   <div class="container-fluid" id="subscribe-container">
-    <h2>Subscribe</h2>
+    <h2>New Customer Order</h2>
     <br/ >
-    <p>Never miss an event! <br/> Please fill out the form below and submit to receive notifications for all upcoming events.</p>
-    <form>
-        <div>
-        <label for="nameInput"> Name:</label>
-        <input type="text" class="form-control" name="nameInput" id="nameInput">
-        </div>
-        <br/ >
-        <div>
-        <label for="emailInput"> Email: </label>
-        <input type="email" class="form-control" name="emailInput" id="emailInput">
-        </div>
-        <br/ >
-        <p>How did you hear about this event?</p>
-        <div>
-        <input type="radio" name="survey" value="facebook" id="facebook"/>
-        <label for="facebook">Facebook Group</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="otherEvent" id="AFK"/>
-        <label for="AFK">AFK or Other Game Event</label>
-        </div>
-        <div>
-        <input type="radio" name="survey" value="priorEvent" id="prior"/>
-        <label for "prior">Prior Killer Game Swap Event</label>
-        </div>
-        <br/ >
-        <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
-    </form>
-    <br/ >
-    <div>
-      <p>
-        <span id="successMsg"></span>
-      </p>
+    <p>Input the Order Date, Employee and Customer IDs and Payment Method</p>
+  <form>
+  <div class="form-row">
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputOrderDate" placeholder="Order Date">
     </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputEmployeeId" placeholder="Employee ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputCustomerId" placeholder="Customer ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputPaymentMethod" placeholder="Payment Method">
+    </div>
+  </div>
+  </form>
+  <p>Input the Products and Quantity purchased</p>
+  <form>
+  <div class="form-row">
+    <strong> 1 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty" placeholder="Sale Quantity">
+    </div>
+    <strong> 6 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID6" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty6" placeholder="Sale Quantity">
+    </div>
+  </div>
+  <div class="form-row">
+    <strong> 2 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID2" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty2" placeholder="Sale Quantity">
+    </div>
+    <strong> 7 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID7" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty7" placeholder="Sale Quantity">
+    </div>
+  </div>
+  <div class="form-row">
+    <strong> 3 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID3" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty3" placeholder="Sale Quantity">
+    </div>
+    <strong> 8 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID8" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty8" placeholder="Sale Quantity">
+    </div>
+  </div>
+  <div class="form-row">
+    <strong> 4 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID4" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty4" placeholder="Sale Quantity">
+    </div>
+    <strong> 9 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID9" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty9" placeholder="Sale Quantity">
+    </div>
+  </div>
+  <div class="form-row">
+    <strong> 5 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID5" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty5" placeholder="Sale Quantity">
+    </div>
+    <strong> 10 </strong>
+    <div class="form-group col-sm">
+      <input type="date" class="form-control" id="inputProductID10" placeholder="Product ID">
+    </div>
+    <div class="form-group col-sm">
+      <input type="text" class="form-control" id="inputSaleQty10" placeholder="Sale Quantity">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
   	<script src="mailList.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
