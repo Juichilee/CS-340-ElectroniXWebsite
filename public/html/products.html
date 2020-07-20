@@ -16,12 +16,12 @@
     <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
           <a class="nav-item nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="newOrder.html">New Customer Order</a>
           <a class="nav-item nav-link" href="customers.html">Customer Maintenance</a>
-          <a class="nav-item nav-link" href="customerOrders.html">Customer Order Maintenance</a>
+          <a class="nav-item nav-link active" href="customerOrders.html">Customer Order Maintenance</a>
           <a class="nav-item nav-link" href="customerOrderItems.html">Order Items Maintenance</a>
           <a class="nav-item nav-link" href="employees.html">Employee Maintenance</a>
-          <a class="nav-item nav-link active" href="products.html">Product Maintenance</a>
-          <a class="nav-item nav-link" href="newOrder.html">New Customer Order</a>
+          <a class="nav-item nav-link" href="products.html">Product Maintenance</a>
       </div>
     </div>
   </nav>
@@ -46,7 +46,7 @@
 		  <tbody>
 			 <!--{{#each results}}-->
 			<tr>
-			  <td>1</td>
+			  <td>TKY56</td>
 			  <td>Computer</td>
 			  <td>$800</td>
 			  <td>$500</td>
@@ -56,7 +56,7 @@
 			  
 			</tr>
 			<tr>
-			  <td>2</td>
+			  <td>TJR34</td>
 			  <td>Laptop</td>
 			  <td>$700</td>
 			  <td>$400</td>
@@ -65,7 +65,7 @@
 			  </td>
 			</tr>
 			<tr>
-			  <td>3</td>
+			  <td>TKY78</td>
 			  <td>Cellphone</td>
 			  <td>$600</td>
 			  <td>$300</td>
@@ -92,6 +92,10 @@
 		  <div class="modal-body">
 			<form>
 				<div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Product ID" name="productIDInput" id="productIDInput">
+				  </div>
+				  </br>
 				  <div>
 					<input type="text" class="form-control" placeholder="Product Description" name="productDescriptionInput" id="productDescriptionInput">
 				  </div>
@@ -127,6 +131,9 @@
               </button>
             </div>
             <div class="modal-body">
+			  <div class="form-group">
+                  <input type="text" name="product_id" class="form-control product_id" placeholder="Product ID" required>
+              </div>
               <div class="form-group">
                   <input type="text" name="product_description" class="form-control product_description" placeholder="Product Description" required>
               </div>
