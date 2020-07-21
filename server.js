@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
     else if (req.url === '/products.html') res.sendFile(path.join(`${__dirname}/public/html/products.html`));
     else if (req.url === '/style.css') res.sendFile(path.join(`${__dirname}/public/css/style.css`));
     else if (req.url === '/mailList.js') res.sendFile(path.join(`${__dirname}/public/js/mailList.js`));
-    else if (req.url === '/ElectroniXLogo.jpg') res.sendFile(path.join(`${__dirname}/public/images/ElectroniXLogo.jpg`));
+    else if (req.url === '/ElectroniXLogo.jpg') res.sendFile(path.join(`${__dirname}/public/html/ElectroniXLogo.jpg`));
 });
 
 app.listen(process.env.port || 3000);
