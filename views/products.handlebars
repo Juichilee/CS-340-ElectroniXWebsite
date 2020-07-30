@@ -1,0 +1,147 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #57c4a7;">
+    <a class="navbar-brand" href="#">EX</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-item nav-link" href="index">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="newOrder">New Customer Order</a>
+          <a class="nav-item nav-link" href="customers">Customer Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrders">Customer Order Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrderItems">Order Items Maintenance</a>
+          <a class="nav-item nav-link" href="employees">Employee Maintenance</a>
+          <a class="nav-item nav-link active" href="products">Product Maintenance</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" id="subscribe-container">
+    <h2>Products</h2>
+    <br/ >
+    <p>List of ElectroniX's products</p>
+	<div>
+		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
+		</br>
+		</br>
+		<table class="table table-striped" id="mytable">
+		  <thead>
+			<tr>
+			  <th>Product ID</th>
+			  <th>Product Description</th>
+			  <th>Sale Price</th>
+			  <th>Unit Cost</th>
+			  <th>Action</th>
+			</tr>
+		  </thead>
+		  <tbody>
+
+			<tr>
+			  <td>TKY56</td>
+			  <td>Computer</td>
+			  <td>$800</td>
+			  <td>$500</td>
+			  <td>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+			  </td>
+			  
+			</tr>
+			<tr>
+			  <td>TJR34</td>
+			  <td>Laptop</td>
+			  <td>$700</td>
+			  <td>$400</td>
+			  <td>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+			  </td>
+			</tr>
+			<tr>
+			  <td>TKY78</td>
+			  <td>Cellphone</td>
+			  <td>$600</td>
+			  <td>$300</td>
+			  <td>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+			  </td>
+			</tr>
+
+		  </tbody>
+		</table>
+	</div>
+  </div>
+  
+  <!-- Modal -->
+	<div id="myModalAdd" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h4 class="modal-title">Add Product</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+				<div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Product ID" name="productIDInput" id="productIDInput">
+				  </div>
+				  </br>
+				  <div>
+					<input type="text" class="form-control" placeholder="Product Description" name="productDescriptionInput" id="productDescriptionInput">
+				  </div>
+				  </br>
+				  <div>
+					<input type="text" class="form-control" placeholder="Sale Price" name="salePriceInput" id="salePriceInput">
+				  </div>
+				  </br>
+				  <div >
+					<input type="text" class="form-control" placeholder="Unit Cost" name="unitCostInput" id="unitCostInput">
+				  </div>
+				  </br>
+				  <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+				</div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	 <!-- Modal Update Product-->
+	<form action="/update" method="post">
+       <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+			  <div class="form-group">
+                  <input type="text" name="product_id" class="form-control product_id" placeholder="Product ID" required>
+              </div>
+              <div class="form-group">
+                  <input type="text" name="product_description" class="form-control product_description" placeholder="Product Description" required>
+              </div>
+ 
+              <div class="form-group">
+                  <input type="text" name="sale_price" class="form-control sale_price" placeholder="Sale Price" required>
+              </div>
+			  <div class="form-group">
+                  <input type="text" name="unit_cost" class="form-control unit_cost" placeholder="Unit Cost" required>
+              </div>
+ 
+            </div>
+            <div class="modal-footer">
+              <input type="hidden" name="id" class="product_id">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+       </div>
+	</form>

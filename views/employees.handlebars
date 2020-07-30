@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #57c4a7;">
+    <a class="navbar-brand" href="#">EX</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-item nav-link" href="index">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="newOrder">New Customer Order</a>
+          <a class="nav-item nav-link" href="customers">Customer Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrders">Customer Order Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrderItems">Order Items Maintenance</a>
+          <a class="nav-item nav-link active" href="employees">Employee Maintenance</a>
+          <a class="nav-item nav-link" href="products">Product Maintenance</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" id="subscribe-container">
+    <h2>Employees</h2>
+    <br/ >
+    <p>List of ElectroniX's employees</p>
+	<div>
+        <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
+		</br>
+		</br>
+		<table class="table table-striped" id="mytable">
+		  <thead>
+			<tr>
+			  <th>Employee ID</th>
+			  <th>Name</th>
+			  <th>Start Date</th>
+			  <th>Active</th>
+			</tr>
+		  </thead>
+		  <tbody>
+
+			<tr>
+			  <td>123</td>
+			  <td>Billy Mayes</td>
+			  <td>10/9/1990</td>
+			  <td>Yes</td>
+			 
+			</tr>
+			<tr>
+			  <td>224</td>
+			  <td>Joe Rogers</td>
+			  <td>12/8/1997</td>
+			  <td>Yes</td>
+			  
+			</tr>
+			<tr>
+			  <td>335</td>
+			  <td>Seymour Stevens</td>
+			  <td>4/6/1989</td>
+			  <td>No</td>
+			  
+			</tr>
+
+		  </tbody>
+		</table>
+   </div>
+  </div>
+  
+  <!-- Modal -->
+	<div id="myModalAdd" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h4 class="modal-title">Add Employee</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+				<div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Employee Name" name="employeeNameInput" id="employeeNameInput">
+				  </div>
+				  </br>
+				  <div>
+					<input type="text" class="form-control" placeholder="Start Date" name="startDateInput" id="startDateInput">
+				  </div>
+				  </br>
+				  <div >
+					<input type="text" class="form-control" placeholder="Active" name="activeInput" id="activeInput">
+				  </div>
+				  </br>
+				  <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+				</div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>

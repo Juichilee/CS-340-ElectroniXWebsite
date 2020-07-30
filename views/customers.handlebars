@@ -1,0 +1,132 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #57c4a7;">
+    <a class="navbar-brand" href="#">EX</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-item nav-link" href="index">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="newOrder">New Customer Order</a>
+          <a class="nav-item nav-link active" href="customers">Customer Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrders">Customer Order Maintenance</a>
+          <a class="nav-item nav-link" href="customerOrderItems">Order Items Maintenance</a>
+          <a class="nav-item nav-link" href="employees">Employee Maintenance</a>
+          <a class="nav-item nav-link" href="products">Product Maintenance</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container-fluid" id="subscribe-container">
+    <h2>Customers</h2>
+    <br/ >
+    <p>List of ElectroniX's customers</p>
+	<div>
+        <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
+		</br>
+		</br>
+		<table class="table table-striped" id="mytable">
+		  <thead>
+			<tr>
+			  <th>Customer ID</th>
+			  <th>First Name</th>
+			  <th>Last Name</th>
+			  <th>Email Address</th>
+			  <th>Phone Number</th>
+			  <th>Street Address</th>
+			  <th>City</th>
+			  <th>State</th>
+			  <th>Zip</th>
+			</tr>
+		  </thead>
+		  <tbody>
+
+			<tr>
+			  <td>1</td>
+			  <td>Bill</td>
+			  <td>Murray</td>
+			  <td>Murrayb@gmail.com</td>
+			  <td>5036667777</td>
+			  <td>672 Hilltop Drive</td>
+			  <td>Roy</td>
+			  <td>UT</td>
+			  <td>84067</td>
+			 
+			</tr>
+			<tr>
+			  <td>2</td>
+			  <td>Amy</td>
+			  <td>Lanes</td>
+			  <td>Lanesa@gmail.com</td>
+			  <td>5038881111</td>
+			  <td>660 Pheasant Street</td>
+			  <td>Garland</td>
+			  <td>TX</td>
+			  <td>75043</td>
+			  
+			</tr>
+			<tr>
+			  <td>3</td>
+			  <td>Susan</td>
+			  <td>Hills</td>
+			  <td>Hillss@gmail.com</td>
+			  <td>5031112222</td>
+			  <td>41 Taylor St.</td>
+			  <td>Neptune</td>
+			  <td>NJ</td>
+			  <td>07753</td>
+			  
+			</tr>
+
+		  </tbody>
+		</table>
+	</div>
+	</div>
+
+	<!-- Modal -->
+	<div id="myModalAdd" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h4 class="modal-title">Add Customer</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+				<div>
+				  <div>
+					<input type="text" class="form-control" placeholder="First Name" name="firstNameInput" id="firstNameInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Last Name" name="lastNameInput" id="lastNameInput">
+				  </div>
+				  <div >
+					<input type="text" class="form-control" placeholder="Email Address" name="emailAddressInput" id="emailAddressInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Phone Number" name="phoneNumberInput" id="phoneNumberInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Street Address" name="streetAddress1Input" id="streetAddress1Input">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="City" name="cityInput" id="cityInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="State" name="stateInput" id="stateInput">
+				  </div>
+				  <div>
+					<input type="text" class="form-control" placeholder="Zip" name="zipInput" id="zipInput">
+				  </div>
+				  </br>
+				  <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+				</div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>

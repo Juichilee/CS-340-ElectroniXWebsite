@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #57c4a7;">
+        <a class="navbar-brand" href="#">EX</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="newOrder">New Customer Order</a>
+                <a class="nav-item nav-link" href="customers">Customer Maintenance</a>
+                <a class="nav-item nav-link" href="customerOrders">Customer Order Maintenance</a>
+                <a class="nav-item nav-link" href="customerOrderItems">Order Items Maintenance</a>
+                <a class="nav-item nav-link" href="employees">Employee Maintenance</a>
+                <a class="nav-item nav-link" href="products">Product Maintenance</a>
+            </div>
+        </div>
+    </nav>
+    <br />
+    <div class="text-center">
+        <img src="ElectroniXLogo.jpg" alt="Logo">
+    </div>
+    <p class="text-center">
+        Please use the navigation bar along the top to select your application.<br />
+        Expand the below for descriptions of each application. 
+    </p>
+    <div class="container-fluid" id="accordion">
+    <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          New Customer Order
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Use this application to create a customer order. <br/ > Once submitted the form will create entries into both the Customer Order and Customer Order Items tables.
+        <br/ > A customer can purchase up to 10 items per order.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Customer Maintenance
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Use this application to create new Customers and view existing Customer data. <br/ >
+        The "Add New" function will Insert an entry into the Customers table.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Customer Order Maintenance
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Use this application to create new Customer Orders, view existing Customer Orders, Edit an existing Customer Order, or Delete an existing Customer Order.
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Order Items Maintenance
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        Use this application to insert Items on a Customer Order, view existing Customer Order Items, and Search by Order ID.
+        <br/ > Typically, the Items on a Customer Order will be entered in the New Customer Order application, and this can be used to add additional Products to an existing Order.
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Employee Maintenance
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+        Use this application to create new Employees and view existing Employee data.
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Product Maintenance
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+        Use this application to create new Products, view existing Product data, or Edit an existing Product.
+      </div>
+    </div>
+  </div>
+</div>
