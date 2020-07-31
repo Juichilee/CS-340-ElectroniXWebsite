@@ -36,39 +36,19 @@
     </tr>
   </thead>
   <tbody>
+  	{{#each results}}
     <tr>
-      <td>1</td>
-      <td>2020-06-30</td>
-      <td>5</td>
-      <td>6</td>
-      <td>Credit Card</td>
+      <td>{{ order_id }}</td>
+      <td>{{ order_date }}</td>
+      <td>{{ customer_id }}</td>
+      <td>{{ employee_id }}</td>
+      <td>{{ payment_method }}</td>
       <td>
-          <button class="btn btn-sm btn-info Edit" data-toggle="modal" data-target="#EditModal">Edit</button>
-          <button class="btn btn-sm btn-danger delete" data-toggle="modal" data-target="#DeleteModal">Delete</button>
+      	<a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-order_id="{{ order_id }}" data-order_date="{{ order_date }}" data-customer_id="{{ customer_id }}" data-employee_id="{{ employee_id }}" data-payment_method="{{ payment_method }}">Edit</a>
+        <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-order_id="{{ order_id }}">Delete</a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>2020-07-02</td>
-      <td>3</td>
-      <td>1</td>
-      <td>Cash</td>
-      <td>
-          <button class="btn btn-sm btn-info Edit" data-toggle="modal" data-target="#EditModal">Edit</button>
-          <button class="btn btn-sm btn-danger delete" data-toggle="modal" data-target="#DeleteModal">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>2020-07-05</td>
-      <td>1</td>
-      <td></td>
-      <td>Google Wallet</td>
-      <td>
-          <button class="btn btn-sm btn-info Edit" data-toggle="modal" data-target="#EditModal">Edit</button>
-          <button class="btn btn-sm btn-danger delete" data-toggle="modal" data-target="#DeleteModal">Delete</button>
-      </td>
-    </tr>
+	{{/each}}
   </tbody>
   </table>
     </div>
