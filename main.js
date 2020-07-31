@@ -27,7 +27,17 @@ app.use('/people_certs', require('./people_certs.js'));
 app.use('/people', require('./people.js'));
 app.use('/planets', require('./planets.js'));
 */
-app.use('/customerOrders',require('./customerOrders.js'));
+//app.use('/customerOrders',require('./customerOrders.js'));
+
+app.get('/',function(req,res){
+	let sql = "SELECT order_id, DATE_FORMAT(order_date, '%m-%d-%Y') as order_date, customer_id, employee_id, payment_method FROM customer_orders";
+	let query = mysql.pool.query(sql, function(err, results){
+		if(err) throw err;
+		res.render('customerOrders',{
+			results: results
+		});
+	});
+});
 
 // All static files in public
 app.use('/', express.static('public'));
