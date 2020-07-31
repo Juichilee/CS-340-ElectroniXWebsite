@@ -27,6 +27,7 @@ app.use('/people_certs', require('./people_certs.js'));
 app.use('/people', require('./people.js'));
 app.use('/planets', require('./planets.js'));
 */
+app.use('/customerOrders',require('./customerOrders.js'));
 
 // All static files in public
 app.use('/', express.static('public'));
