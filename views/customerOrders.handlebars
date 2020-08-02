@@ -21,7 +21,7 @@
     <br/ >
     <p>List of ElectroniX's customer orders</p>
     <div>
-    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> <!--- Pair with Modal --->
+    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button> {{!--- Pair with Modal ---}}
     <br/ >
     <br/ >
   <table class="table table-striped" id="customerOrderTable">
@@ -44,8 +44,8 @@
       <td>{{ employee_id }}</td>
       <td>{{ payment_method }}</td>
       <td>
-      	<a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-order_id="{{ order_id }}" data-order_date="{{ order_date }}" data-customer_id="{{ customer_id }}" data-employee_id="{{ employee_id }}" data-payment_method="{{ payment_method }}">Edit</a>
-        <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-order_id="{{ order_id }}">Delete</a>
+      	<a href="javascript:void(0);" data-toggle="modal" data-target="#EditModal" class="btn btn-sm btn-info edit" data-order_id="{{ order_id }}" data-order_date="{{ order_date }}" data-customer_id="{{ customer_id }}" data-employee_id="{{ employee_id }}" data-payment_method="{{ payment_method }}">Edit</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#DeleteModal" class="btn btn-sm btn-danger delete" data-order_id="{{ order_id }}">Delete</a>
       </td>
     </tr>
 	{{/each}}
@@ -54,11 +54,11 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  {{!-- Modal --}}
   <div id="myModalAdd" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-    <!-- Modal content-->
+    {{!-- Modal content--}}
     <div class="modal-content">
       <div class="modal-header">
       <h4 class="modal-title">Add Customer Order</h4>
@@ -91,7 +91,7 @@
     </div>
   </div>
 
-     <!-- Modal Update Customer Order-->
+     {{!-- Modal Update Customer Order--}}
   <form action="/update" method="post">
        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -126,7 +126,7 @@
        </div>
   </form>
 
-     <!-- Modal Delete Customer Order-->
+     {{!-- Modal Delete Customer Order--}}
       <form id="add-row-form" action="/delete" method="post">
          <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">

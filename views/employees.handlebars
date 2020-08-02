@@ -33,28 +33,14 @@
 			</tr>
 		  </thead>
 		  <tbody>
-
+			{{#each results}}
 			<tr>
-			  <td>123</td>
-			  <td>Billy Mayes</td>
-			  <td>10/9/1990</td>
-			  <td>Yes</td>
-			 
+			  <td>{{ employee_id }}</td>
+			  <td>{{ employee_name }}</td>
+			  <td>{{ start_date }}</td>
+			  <td>{{ active_flag }}</td>
 			</tr>
-			<tr>
-			  <td>224</td>
-			  <td>Joe Rogers</td>
-			  <td>12/8/1997</td>
-			  <td>Yes</td>
-			  
-			</tr>
-			<tr>
-			  <td>335</td>
-			  <td>Seymour Stevens</td>
-			  <td>4/6/1989</td>
-			  <td>No</td>
-			  
-			</tr>
+			{{/each}}
 
 		  </tbody>
 		</table>

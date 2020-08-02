@@ -30,12 +30,8 @@ app.use('/planets', require('./planets.js'));
 //app.use('/customerOrders',require('./customerOrders.js'));
 
 app.get('/',function(req,res){
-	let sql = "SELECT order_id, DATE_FORMAT(order_date, '%m-%d-%Y') as order_date, customer_id, employee_id, payment_method FROM customer_orders";
-	let query = mysql.pool.query(sql, function(err, results){
-		if(err) throw err;
-		res.render('customerOrders',{
-			results: results
-		});
+	res.status(200).render('index', {
+		titleText: "Home"
 	});
 });
 
@@ -48,7 +44,7 @@ app.get('', function (req, res) {
 	});
 });
 
-// Renders pages in views
+// Renders pages in views and their tables via SELECT
 app.get('/:page', function (req, res, next) {
 	//.toLowerCase();
 	var page = req.params.page;
@@ -58,28 +54,55 @@ app.get('/:page', function (req, res, next) {
 			titleText: "Home"
 		});
 	} else if (page == "products") {
-		res.status(200).render('products', {
-			titleText: "Products"
+		let sql = "SELECT product_id, product_description, sale_price, unit_cost FROM products";
+		let query = mysql.pool.query(sql, function (err, results) {
+			if (err) throw err;
+			res.status(200).render('products', {
+				titleText: "Products",
+				results: results
+			});
 		});
+		
 	} else if (page == "newOrder") {
 		res.status(200).render('newOrder', {
 			titleText: "New Customer Order"
 		});
 	} else if (page == "employees") {
-		res.status(200).render('employees', {
-			titleText: "Employees"
+		let sql = "SELECT employee_id, employee_name, DATE_FORMAT(start_date, '%m-%d-%Y') as start_date, active_flag FROM employees";
+		let query = mysql.pool.query(sql, function (err, results) {
+			if (err) throw err;
+			res.status(200).render('employees', {
+				titleText: "Employees",
+				results: results
+			});
 		});
+		
 	} else if (page == "customers") {
-		res.status(200).render('customers', {
-			titleText: "Customers"
+		let sql = "SELECT customer_id, customer_firstname, customer_lastname, email_addr, phone_nr, street_addr, city_name, state_cd, zip_cd FROM customers";
+		let query = mysql.pool.query(sql, function (err, results) {
+			if (err) throw err;
+			res.status(200).render('customers', {
+				titleText: "Customers",
+				results: results
+			});
 		});
 	} else if (page == "customerOrders") {
-		res.status(200).render('customerOrders', {
-			titleText: "Customer Orders"
+		let sql = "SELECT order_id, DATE_FORMAT(order_date, '%m-%d-%Y') as order_date, customer_id, employee_id, payment_method FROM customer_orders";
+		let query = mysql.pool.query(sql, function (err, results) {
+			if (err) throw err;
+			res.render('customerOrders', {
+				titleText: "CustomerOrders",
+				results: results
+			});
 		});
 	} else if (page == "customerOrderItems") {
-		res.status(200).render('customerOrderItems', {
-			titleText: "Customer Order Items"
+		let sql = "SELECT order_id, product_id, sale_qty FROM customer_order_items";
+		let query = mysql.pool.query(sql, function (err, results) {
+			if (err) throw err;
+			res.status(200).render('customerOrderItems', {
+				titleText: "Customer Order Items",
+				results: results
+			});
 		});
 	}else {
 		next();

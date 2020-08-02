@@ -39,44 +39,19 @@
 			</tr>
 		  </thead>
 		  <tbody>
-
+			{{#each results}}
 			<tr>
-			  <td>1</td>
-			  <td>Bill</td>
-			  <td>Murray</td>
-			  <td>Murrayb@gmail.com</td>
-			  <td>5036667777</td>
-			  <td>672 Hilltop Drive</td>
-			  <td>Roy</td>
-			  <td>UT</td>
-			  <td>84067</td>
-			 
+			  <th>{{ customer_id }}</th>
+			  <th>{{ customer_firstname }}</th>
+			  <th>{{ customer_lastname }}</th>
+			  <th>{{ email_addr }}</th>
+			  <th>{{ phone_nr }}</th>
+			  <th>{{ street_addr }}</th>
+			  <th>{{ city_name }}</th>
+			  <th>{{ state_cd }}</th>
+			  <th>{{ zip_cd }}</th>
 			</tr>
-			<tr>
-			  <td>2</td>
-			  <td>Amy</td>
-			  <td>Lanes</td>
-			  <td>Lanesa@gmail.com</td>
-			  <td>5038881111</td>
-			  <td>660 Pheasant Street</td>
-			  <td>Garland</td>
-			  <td>TX</td>
-			  <td>75043</td>
-			  
-			</tr>
-			<tr>
-			  <td>3</td>
-			  <td>Susan</td>
-			  <td>Hills</td>
-			  <td>Hillss@gmail.com</td>
-			  <td>5031112222</td>
-			  <td>41 Taylor St.</td>
-			  <td>Neptune</td>
-			  <td>NJ</td>
-			  <td>07753</td>
-			  
-			</tr>
-
+			{{/each}}
 		  </tbody>
 		</table>
 	</div>
