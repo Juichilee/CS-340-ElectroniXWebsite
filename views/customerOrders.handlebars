@@ -53,43 +53,40 @@
   </table>
     </div>
   </div>
-
-  {{!-- Modal --}}
-  <div id="myModalAdd" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-    {{!-- Modal content--}}
-    <div class="modal-content">
-      <div class="modal-header">
-      <h4 class="modal-title">Add Customer Order</h4>
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-      <form>
-        <div>
-          <div class="form-group">
-          <input type="date" class="form-control" placeholder="Order Date" name="orderDateInput" id="orderDateInput">
-          </div>
-          <div class="form-group">
-          <input type="text" class="form-control" placeholder="Customer ID" name="customerIdInput" id="customerIdInput">
-          </div>
-          <div class="form-group">
-          <input type="text" class="form-control" placeholder="Employee ID" name="employeeIdInput" id="employeeIdInput">
-          </div>
-          <div class="form-group">
-          <input type="text" class="form-control" placeholder="Payment Method" name="paymentMethodInput" id="paymentMethodInput">
-          </div>
-          </br>
-          <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+  
+      <!-- Modal Add Product-->
+      <form action="/customerOrders" method="post">
+        <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Add Customer Order</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+          		<div class="form-group">
+          		<input type="date" class="form-control" placeholder="Order Date" name="order_date" id="orderDateInput">
+         		 </div>
+          		<div class="form-group">
+          		<input type="text" class="form-control" placeholder="Customer ID" name="customer_id" id="customerIdInput">
+          		</div>
+          		<div class="form-group">
+         		 <input type="text" class="form-control" placeholder="Employee ID" name="employee_id" id="employeeIdInput">
+          		</div>
+         		 <div class="form-group">
+         		 <input type="text" class="form-control" placeholder="Payment Method" name="payment_method" id="paymentMethodInput">
+         	 </div>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Save</button>
+             </div>
+           </div>
+         </div>
         </div>
-      </form>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    </div>
-  </div>
+     </form>
 
      {{!-- Modal Update Customer Order--}}
   <form action="/update" method="post">
