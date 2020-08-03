@@ -62,11 +62,7 @@ app.get('/:page', function (req, res, next) {
 				results: results
 			});
 		});
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 8b9010e0e916d99f957d66e1bd8ac7d692dadf58
 	} else if (page == "newOrder") {
 		res.status(200).render('newOrder', {
 			titleText: "New Customer Order"
@@ -80,11 +76,7 @@ app.get('/:page', function (req, res, next) {
 				results: results
 			});
 		});
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 8b9010e0e916d99f957d66e1bd8ac7d692dadf58
 	} else if (page == "customers") {
 		let sql = "SELECT customer_id, customer_firstname, customer_lastname, email_addr, phone_nr, street_addr, city_name, state_cd, zip_cd FROM customers";
 		let query = mysql.pool.query(sql, function (err, results) {
@@ -117,7 +109,6 @@ app.get('/:page', function (req, res, next) {
 	}
 });
 
-<<<<<<< HEAD
 // PAGE INSERTS
 app.post('/customers/post', function (req, res) {
 	console.log(req.body.firstNameInput);
@@ -135,9 +126,6 @@ app.post('/customers/post', function (req, res) {
 });
 
 // ERROR FUNCTIONS
-=======
-
->>>>>>> 8b9010e0e916d99f957d66e1bd8ac7d692dadf58
 app.use(function (req, res) {
     res.status(404);
     res.render('404');
