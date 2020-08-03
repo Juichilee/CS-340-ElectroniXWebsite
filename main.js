@@ -7,6 +7,7 @@
 var express = require('express');
 var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 var app = express();
 var handlebars = require('express-handlebars').create({
@@ -110,8 +111,21 @@ app.get('/:page', function (req, res, next) {
 });
 
 // PAGE INSERTS
+app.post('/products/post', function (req, res) {
+	let sql = "INSERT INTO products (product_id, product_description, sale_price, unit_cost) VALUES (?,?,?,?)";
+	var inserts = [req.body.productIDInput, req.body.productDescriptionInput, parseFloat(req.body.salePriceInput), parseFloat(req.body.unitCostInput)];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/products');
+		}
+	});
+});
+
 app.post('/customers/post', function (req, res) {
-	console.log(req.body.firstNameInput);
 	let sql = "INSERT INTO customers (customer_firstname, customer_lastname, email_addr, phone_nr, street_addr, city_name, state_cd, zip_cd) VALUES (?,?,?,?,?,?,?,?)";
 	var inserts = [req.body.firstNameInput, req.body.lastNameInput, req.body.emailAddressInput, req.body.phoneNumberInput, req.body.streetAddress1Input, req.body.cityInput, req.body.stateInput, parseInt(req.body.zipInput)];
 	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
@@ -122,6 +136,24 @@ app.post('/customers/post', function (req, res) {
 		} else {
 			res.redirect('/customers');
         }
+	});
+});
+
+app.post('/employees/post', function (req, res) {
+	let sql = "INSERT INTO employees (employee_name, start_date, active_flag) VALUES (?,?,?)";
+	var date = req.body.startDateInput;
+	//console.log(date);
+	var strDate = date.toString();
+	//console.log(strDate);
+	var inserts = [req.body.employeeNameInput, strDate, req.body.activeInput];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/employees');
+		}
 	});
 });
 
