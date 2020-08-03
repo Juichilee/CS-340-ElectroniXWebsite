@@ -34,36 +34,17 @@
 			</tr>
 		  </thead>
 		  <tbody>
-
+			{{#each results}}
 			<tr>
-			  <td>TKY56</td>
-			  <td>Computer</td>
-			  <td>$800</td>
-			  <td>$500</td>
+			  <td>{{ product_id }}</td>
+			  <td>{{ product_description }}</td>
+			  <td>{{ sale_price }}</td>
+			  <td>{{ unit_cost }}</td>
 			  <td>
-				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
-			  </td>
-			  
-			</tr>
-			<tr>
-			  <td>TJR34</td>
-			  <td>Laptop</td>
-			  <td>$700</td>
-			  <td>$400</td>
-			  <td>
-				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
+				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal" data-product_id="{{ product_id }}" data-product_description="{{ product_description }}" data-sale_price="{{ sale_price }}" data-unit_cost="{{ unit_cost }}">Edit</a>
 			  </td>
 			</tr>
-			<tr>
-			  <td>TKY78</td>
-			  <td>Cellphone</td>
-			  <td>$600</td>
-			  <td>$300</td>
-			  <td>
-				<a href="#" class="btn btn-sm btn-info edit" data-toggle="modal" data-target="#EditModal">Edit</a>
-			  </td>
-			</tr>
-
+			{{/each}}
 		  </tbody>
 		</table>
 	</div>

@@ -24,7 +24,9 @@
     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add Product to Customer Order</button> <!--- Pair with Modal --->
     <br/ >
     <br/ >
-  <input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search for orders..">
+  	<input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search for orders..">
+    <br/>
+    <br/>
   <table class="table table-striped" id="customerOrderItemTable">
   <thead>
     <tr>
@@ -34,26 +36,13 @@
     </tr>
   </thead>
   <tbody>
+    {{#each results}}
     <tr>
-      <td>1</td>
-      <td>TKY56</td>
-      <td>1</td>
+      <td>{{ order_id }}</td>
+      <td>{{ product_id }}</td>
+      <td>{{ sale_qty }}</td>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>TJR34</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>TKY78</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>TJR34</td>
-      <td>1</td>
-    </tr>    
+    {{/each}}
   </tbody>
   </table>
     </div>
