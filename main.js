@@ -110,6 +110,9 @@ app.get('/:page', function (req, res, next) {
 	}
 });
 
+// DELETE FUNCTIONS
+
+
 // PAGE INSERTS
 app.post('/products/post', function (req, res) {
 	let sql = "INSERT INTO products (product_id, product_description, sale_price, unit_cost) VALUES (?,?,?,?)";
@@ -216,6 +219,24 @@ app.post('/products/update', function (req, res) {
 			res.end();
 		} else {
 			res.redirect('/products');
+		}
+	});
+});
+
+app.post('/customerOrders/update', function (req, res) {
+	let sql = "UPDATE customer_orders SET order_date = ?, customer_id = ?, employee_id = ?, payment_method = ? WHERE order_id = ?";
+	//console.log(req.body.order_date);
+	var date = req.body.order_date;
+	var strDate = date.toString();
+	
+	var inserts = [strDate, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.order_id];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/customerOrders');
 		}
 	});
 });
