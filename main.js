@@ -157,6 +157,22 @@ app.post('/employees/post', function (req, res) {
 	});
 });
 
+// UPDATE FUNCTIONS
+app.post('/products/update', function (req, res) {
+	let sql = "UPDATE products SET product_id = ?, product_description = ?, sale_price = ?, unit_cost = ? WHERE product_id = ?";
+	//console.log(req.body.product_id + req.body.product_description + req.body.sale_price + req.body.unit_cost + req.body.old_product_id);
+	var inserts = [req.body.product_id, req.body.product_description, req.body.sale_price, req.body.unit_cost, req.body.old_product_id];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/products');
+		}
+	});
+});
+
 // ERROR FUNCTIONS
 app.use(function (req, res) {
     res.status(404);
