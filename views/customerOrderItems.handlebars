@@ -24,7 +24,7 @@
     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add Product to Customer Order</button> <!--- Pair with Modal --->
     <br/ >
     <br/ >
-  	<input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search for orders..">
+  	<input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Search by Order Id...">
     <br/>
     <br/>
   <table class="table table-striped" id="customerOrderItemTable">
@@ -47,40 +47,37 @@
   </table>
     </div>
   </div>
-
-
-  <div id="myModalAdd" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-
-    <div class="modal-content">
-      <div class="modal-header">
-      <h4 class="modal-title">Add Product to Customer Order</h4>
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-      <form>
-        <div>
+  
+        <!-- Modal Add Customer Order Items-->
+      <form action="/customerOrderItems/post" method="post">
+        <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Add Product to Customer Order</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
           <div class="form-group">
-          <input type="text" class="form-control" placeholder="Order ID" name="orderIdInput" id="orderIdInput">
+          <input type="text" class="form-control" placeholder="Order ID" name="order_id" id="orderIdInput">
           </div>
           <div class="form-group">
-          <input type="text" class="form-control" placeholder="Product ID" name="productIdInput" id="productIdInput">
+          <input type="text" class="form-control" placeholder="Product ID" name="product_id" id="productIdInput">
           </div>
           <div class="form-group">
-          <input type="text" class="form-control" placeholder="Sale Qty" name="saleQtyInput" id="saleQtyInput">
+          <input type="text" class="form-control" placeholder="Sale Qty" name="sale_qty" id="saleQtyInput">
           </div>
-          </br>
-          <button type="submit" class="btn btn-primary" id="mailListSubmit">Submit</button>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary" id="mailListSubmit">Save</button>
+             </div>
+           </div>
+         </div>
         </div>
-      </form>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    </div>
-  </div>
+     </form>
 
     <script>
   function filterFunction() {

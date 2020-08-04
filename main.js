@@ -173,6 +173,53 @@ app.post('/products/update', function (req, res) {
 	});
 });
 
+app.post('/customerOrders/post', function (req, res) {
+	let sql = "INSERT INTO customer_orders (order_date, customer_id, employee_id, payment_method) VALUES (?,?,?,?)";
+	//var date = req.body.orderDateInput;
+	//console.log(date);
+	//var strDate = date.toString();
+	//console.log(strDate);
+	var inserts = [req.body.order_date, req.body.customer_id, req.body.employee_id, req.body.payment_method];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/customerOrders');
+		}
+	});
+});
+
+app.post('/customerOrderItems/post', function (req, res) {
+	let sql = "INSERT INTO customer_order_items (order_id, product_id, sale_qty) VALUES (?,?,?)";
+	var inserts = [req.body.order_id, req.body.product_id, req.body.sale_qty];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/customerOrderItems');
+		}
+	});
+});
+
+app.post('/newOrder/post', function (req, res) {
+	let sql = "INSERT INTO customer_orders (order_date, customer_id, employee_id, payment_method) VALUES (?,?,?,?);" +
+	"INSERT INTO customer_order_items (order_id, product_id, sale_qty) VALUES ((select max(order_id) from customer_orders), ?,?)";
+	var inserts = [req.body.order_date, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.product_id, req.body.sale_qty];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/newOrder');
+		}
+	});
+});
+
 // ERROR FUNCTIONS
 app.use(function (req, res) {
     res.status(404);
