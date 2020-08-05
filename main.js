@@ -225,11 +225,16 @@ app.post('/products/update', function (req, res) {
 
 app.post('/customerOrders/update', function (req, res) {
 	let sql = "UPDATE customer_orders SET order_date = ?, customer_id = ?, employee_id = ?, payment_method = ? WHERE order_id = ?";
-	//console.log(req.body.order_date);
 	var date = req.body.order_date;
-	var strDate = date.toString();
-	
-	var inserts = [strDate, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.order_id];
+	var finalDate;
+	var n = date.indexOf("-");
+	if (n == 2) { // Check if date string is in correct order
+		finalDate = date.substr(6, 10) + "-" + date.substr(0, 2) + "-" + date.substr(3, 2);
+	} else {
+		finalDate = date;
+    }
+	console.log("Date:" + finalDate);
+	var inserts = [finalDate, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.order_id];
 	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
 		if (err) {
 			console.log(JSON.stringify(err));
