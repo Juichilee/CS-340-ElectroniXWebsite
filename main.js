@@ -161,6 +161,7 @@ app.post('/employees/post', function (req, res) {
 });
 
 app.post('/customerOrders/post', function (req, res) {
+	if (req.body.employee_id == '') {req.body.employee_id = null};
 	let sql = "INSERT INTO customer_orders (order_date, customer_id, employee_id, payment_method) VALUES (?,?,?,?)";
 	//var date = req.body.orderDateInput;
 	//console.log(date);
@@ -227,6 +228,7 @@ app.post('/products/update', function (req, res) {
 });
 
 app.post('/customerOrders/update', function (req, res) {
+	if (req.body.employee_id == '') {req.body.employee_id = null};
 	let sql = "UPDATE customer_orders SET employee_id = ?, payment_method = ? WHERE order_id = ?";
 	var inserts = [req.body.employee_id, req.body.payment_method, req.body.order_id];
 	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
