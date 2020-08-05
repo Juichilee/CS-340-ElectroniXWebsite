@@ -55,7 +55,7 @@ app.get('/:page', function (req, res, next) {
 			titleText: "Home"
 		});
 	} else if (page == "products") {
-		let sql = "SELECT product_id, product_description, sale_price, unit_cost FROM products";
+		let sql = "SELECT product_id, product_description, sale_price, unit_cost FROM products WHERE product_id <> 'PLACE'";
 		let query = mysql.pool.query(sql, function (err, results) {
 			if (err) throw err;
 			res.status(200).render('products', {
@@ -194,8 +194,11 @@ app.post('/customerOrderItems/post', function (req, res) {
 
 app.post('/newOrder/post', function (req, res) {
 	let sql = "INSERT INTO customer_orders (order_date, customer_id, employee_id, payment_method) VALUES (?,?,?,?);" +
-	"INSERT INTO customer_order_items (order_id, product_id, sale_qty) VALUES ((select max(order_id) from customer_orders), ?,?)";
-	var inserts = [req.body.order_date, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.product_id, req.body.sale_qty];
+	"INSERT INTO customer_order_items (order_id, product_id, sale_qty) VALUES ((select max(order_id) from customer_orders), ?,?);" +
+	"INSERT INTO customer_order_items (order_id, product_id, sale_qty) VALUES ((select max(order_id) from customer_orders), ?,?);" +
+	"DELETE FROM customer_order_items WHERE order_id = (select max(order_id) from customer_order_items) and product_id = 'PLACE' OR sale_qty = 0;";
+	var inserts = [req.body.order_date, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.product_id, req.body.sale_qty,
+	req.body.product_id2,req.body.sale_qty2];
 	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
 		if (err) {
 			console.log(JSON.stringify(err));
@@ -224,12 +227,8 @@ app.post('/products/update', function (req, res) {
 });
 
 app.post('/customerOrders/update', function (req, res) {
-	let sql = "UPDATE customer_orders SET order_date = ?, customer_id = ?, employee_id = ?, payment_method = ? WHERE order_id = ?";
-	//console.log(req.body.order_date);
-	var date = req.body.order_date;
-	var strDate = date.toString();
-	
-	var inserts = [strDate, req.body.customer_id, req.body.employee_id, req.body.payment_method, req.body.order_id];
+	let sql = "UPDATE customer_orders SET employee_id = ?, payment_method = ? WHERE order_id = ?";
+	var inserts = [req.body.employee_id, req.body.payment_method, req.body.order_id];
 	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
 		if (err) {
 			console.log(JSON.stringify(err));
@@ -240,6 +239,23 @@ app.post('/customerOrders/update', function (req, res) {
 		}
 	});
 });
+
+//DELETE FUNCTION
+app.post('/customerOrders/delete', function (req, res) {
+	let sql = "DELETE FROM customer_order_items WHERE order_id = ?;" +
+	"DELETE FROM customer_orders WHERE order_id = ?;";
+	var inserts = [req.body.order_id, req.body.order_id];
+	let query = mysql.pool.query(sql, inserts, function (err, results, fields) {
+		if (err) {
+			console.log(JSON.stringify(err));
+			res.write(JSON.stringify(err));
+			res.end();
+		} else {
+			res.redirect('/customerOrders');
+		}
+	});
+});
+
 
 // ERROR FUNCTIONS
 app.use(function (req, res) {

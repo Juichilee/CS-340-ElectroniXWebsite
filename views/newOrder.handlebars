@@ -18,7 +18,7 @@
   <div class="container-fluid" id="subscribe-container">
     <h2>New Customer Order</h2>
     <br/ >
-  <form action="/newOrder/post" method="post">
+  <form action="/newOrder/post" method="post" id="order_form">
     <p>Input the Order Date, Employee ID, Customer ID and Payment Method</p>
   <div class="form-row">
     <div class="form-group col-sm">
@@ -43,78 +43,26 @@
     <div class="form-group col-sm">
       <input type="text" class="form-control" name="sale_qty" id="inputSaleQty" placeholder="Sale Quantity">
     </div>
-    <strong> 6 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID6" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty6" placeholder="Sale Quantity">
-    </div>
-  </div>
-  <div class="form-row">
     <strong> 2 </strong>
     <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID2" placeholder="Product ID">
+      <input type="text" class="form-control" name="product_id2" id="inputProductID2" placeholder="Product ID">
     </div>
     <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty2" placeholder="Sale Quantity">
-    </div>
-    <strong> 7 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID7" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty7" placeholder="Sale Quantity">
+      <input type="text" class="form-control" name="sale_qty2" id="inputSaleQty2" placeholder="Sale Quantity">
     </div>
   </div>
-  <div class="form-row">
-    <strong> 3 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID3" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty3" placeholder="Sale Quantity">
-    </div>
-    <strong> 8 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID8" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty8" placeholder="Sale Quantity">
-    </div>
-  </div>
-  <div class="form-row">
-    <strong> 4 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID4" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty4" placeholder="Sale Quantity">
-    </div>
-    <strong> 9 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID9" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty9" placeholder="Sale Quantity">
-    </div>
-  </div>
-  <div class="form-row">
-    <strong> 5 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID5" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty5" placeholder="Sale Quantity">
-    </div>
-    <strong> 10 </strong>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputProductID10" placeholder="Product ID">
-    </div>
-    <div class="form-group col-sm">
-      <input type="text" class="form-control" id="inputSaleQty10" placeholder="Sale Quantity">
-    </div>
-  </div>
-
   <button type="submit" class="btn btn-primary" id="mailListSubmit">Save</button>
 </form>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#order_form").submit(function() {           
+            if($("#inputProductID").val()=="") {             
+                    $("#inputProductID").val('PLACE');         
+                            }
+            if($("#inputProductID2").val()=="") {             
+                    $("#inputProductID2").val('PLACE');         
+                            }
+        });
+     });
+</script>
