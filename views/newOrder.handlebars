@@ -25,10 +25,22 @@
       <input type="date" class="form-control" name="order_date" id="inputOrderDate" placeholder="Order Date: YYYY-MM-DD">
     </div>
     <div class="form-group col-sm">
-      <input type="text" class="form-control" name="employee_id" id="inputEmployeeId" placeholder="Employee ID">
+    <select name="employee_id" id="inputEmployeeId" class="form-control">
+    	<optgroup label="Employee Name">
+        {{#each employees}}
+        <option value="{{employee_id}}">{{employee_name}}</option>
+        {{/each}}
+        </optgroup>
+    </select>
     </div>
     <div class="form-group col-sm">
-      <input type="text" class="form-control" name="customer_id" id="inputCustomerId" placeholder="Customer ID">
+    <select name="customer_id" id="inputCustomerId" class="form-control">
+    	<optgroup label="Customer Name">
+        {{#each customers}}
+        <option value="{{customer_id}}">{{name}}</option>
+        {{/each}}
+        </optgroup>
+    </select>
     </div>
     <div class="form-group col-sm">
       <input type="text" class="form-control" name="payment_method" id="inputPaymentMethod" placeholder="Payment Method">
@@ -38,14 +50,26 @@
   <div class="form-row">
     <strong> 1 </strong>
     <div class="form-group col-sm">
-      <input type="text" class="form-control" name="product_id" id="inputProductID" placeholder="Product ID">
+    <select name="product_id" id="inputProductID" class="form-control">
+    	<optgroup label="Product (Placeholder is Default)">
+        {{#each products}}
+        <option value="{{product_id}}">{{product}}</option>
+        {{/each}}
+        </optgroup>
+    </select>
     </div>
     <div class="form-group col-sm">
       <input type="text" class="form-control" name="sale_qty" id="inputSaleQty" placeholder="Sale Quantity">
     </div>
     <strong> 2 </strong>
     <div class="form-group col-sm">
-      <input type="text" class="form-control" name="product_id2" id="inputProductID2" placeholder="Product ID">
+    <select name="product_id2" id="inputProductID2" class="form-control">
+    	<optgroup label="Product (Placeholder is Default)">
+        {{#each products}}
+        <option value="{{product_id}}">{{product}}</option>
+        {{/each}}
+        </optgroup>
+    </select>
     </div>
     <div class="form-group col-sm">
       <input type="text" class="form-control" name="sale_qty2" id="inputSaleQty2" placeholder="Sale Quantity">

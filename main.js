@@ -45,6 +45,39 @@ app.get('', function (req, res) {
 	});
 });
 
+    function getProducts(res, mysql, context, complete){
+        mysql.pool.query("SELECT product_id, CONCAT(product_id,'-',product_description) as product FROM products", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.products  = results;
+            complete();
+        });
+    }
+    
+    function getEmployees(res, mysql, context, complete){
+        mysql.pool.query("SELECT employee_id, employee_name FROM employees", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.employees  = results;
+            complete();
+        });
+    }
+    
+    function getCustomers(res, mysql, context, complete){
+        mysql.pool.query("SELECT customer_id, CONCAT(customer_firstname,' ',customer_lastname) as name FROM customers", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.customers  = results;
+            complete();
+        });
+    }
+
 // Renders pages in views and their tables via SELECT
 app.get('/:page', function (req, res, next) {
 	//.toLowerCase();
@@ -65,9 +98,18 @@ app.get('/:page', function (req, res, next) {
 		});
 
 	} else if (page == "newOrder") {
-		res.status(200).render('newOrder', {
-			titleText: "New Customer Order"
-		});
+		var callbackCount = 0;
+     	var context = {};
+      	getProducts(res,mysql,context,complete);
+      	getEmployees(res,mysql,context,complete);
+      	getCustomers(res,mysql,context,complete);
+      	function complete() {
+         callbackCount++;
+         if(callbackCount >= 3){
+            res.status(200).render('newOrder', context);
+      	}
+      };
+
 	} else if (page == "employees") {
 		let sql = "SELECT employee_id, employee_name, DATE_FORMAT(start_date, '%m-%d-%Y') as start_date, active_flag FROM employees";
 		let query = mysql.pool.query(sql, function (err, results) {
