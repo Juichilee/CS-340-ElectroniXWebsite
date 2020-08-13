@@ -45,6 +45,8 @@ app.get('', function (req, res) {
 	});
 });
 
+//Functions for dropdowns and pages
+
     function getProducts(res, mysql, context, complete){
         mysql.pool.query("SELECT product_id, CONCAT(product_id,'-',product_description) as product FROM products", function(error, results, fields){
             if(error){
@@ -52,6 +54,17 @@ app.get('', function (req, res) {
                 res.end();
             }
             context.products  = results;
+            complete();
+        });
+    }
+
+    function getProductsNP(res, mysql, context, complete){
+        mysql.pool.query("SELECT product_id, CONCAT(product_id,'-',product_description) as product FROM products WHERE product_id <> 'PLACE'", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.productsNP  = results;
             complete();
         });
     }
@@ -74,6 +87,39 @@ app.get('', function (req, res) {
                 res.end();
             }
             context.customers  = results;
+            complete();
+        });
+    }
+    
+    function getCustomerOrders(res, mysql, context, complete){
+        mysql.pool.query("SELECT order_id, DATE_FORMAT(order_date, '%m-%d-%Y') as order_date, customer_id, employee_id, payment_method FROM customer_orders", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.customerOrders  = results;
+            complete();
+        });
+    }
+    
+    function getOrderID(res, mysql, context, complete){
+        mysql.pool.query("SELECT order_id FROM customer_orders group by 1", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.orderID  = results;
+            complete();
+        });
+    }
+    
+    function getOrderItems(res, mysql, context, complete){
+        mysql.pool.query("SELECT order_id, product_id, sale_qty FROM customer_order_items", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.customerOrderItems  = results;
             complete();
         });
     }
@@ -131,23 +177,33 @@ app.get('/:page', function (req, res, next) {
 			});
 		});
 	} else if (page == "customerOrders") {
-		let sql = "SELECT order_id, DATE_FORMAT(order_date, '%m-%d-%Y') as order_date, customer_id, employee_id, payment_method FROM customer_orders";
-		let query = mysql.pool.query(sql, function (err, results) {
-			if (err) throw err;
-			res.render('customerOrders', {
-				titleText: "CustomerOrders",
-				results: results
-			});
-		});
+		var callbackCount = 0;
+     	var context = {};
+      	getCustomerOrders(res,mysql,context,complete);
+      	getEmployees(res,mysql,context,complete);
+      	getCustomers(res,mysql,context,complete);
+		function complete() {
+         callbackCount++;
+			if (callbackCount >= 3) {
+				context.titleText = "Customer Orders";
+				res.status(200).render('customerOrders', context);
+      		}
+		};	
+
 	} else if (page == "customerOrderItems") {
-		let sql = "SELECT order_id, product_id, sale_qty FROM customer_order_items";
-		let query = mysql.pool.query(sql, function (err, results) {
-			if (err) throw err;
-			res.status(200).render('customerOrderItems', {
-				titleText: "Customer Order Items",
-				results: results
-			});
-		});
+		var callbackCount = 0;
+     	var context = {};
+      	getOrderID(res,mysql,context,complete);
+      	getProductsNP(res,mysql,context,complete);
+      	getOrderItems(res,mysql,context,complete);
+		function complete() {
+         callbackCount++;
+			if (callbackCount >= 3) {
+				context.titleText = "Customer Order Items";
+				res.status(200).render('customerOrderItems', context);
+      		}
+		};	
+		
 	}else {
 		next();
 	}
