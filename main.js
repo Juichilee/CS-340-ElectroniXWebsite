@@ -103,12 +103,13 @@ app.get('/:page', function (req, res, next) {
       	getProducts(res,mysql,context,complete);
       	getEmployees(res,mysql,context,complete);
       	getCustomers(res,mysql,context,complete);
-      	function complete() {
+		function complete() {
          callbackCount++;
-         if(callbackCount >= 3){
-            res.status(200).render('newOrder', context);
-      	}
-      };
+			if (callbackCount >= 3) {
+				context.titleText = "New Order";
+				res.status(200).render('newOrder', context);
+      		}
+		};
 
 	} else if (page == "employees") {
 		let sql = "SELECT employee_id, employee_name, DATE_FORMAT(start_date, '%m-%d-%Y') as start_date, active_flag FROM employees";
