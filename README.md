@@ -38,8 +38,8 @@ a dedicated SQL database. Supports Create, Read, Update, and Delete operations. 
 
 ### Built With
 
-Languages: HTML, CSS, Javascript, SQL
-Framework-and-Tools: Express, Handlebars, Body-Parser, MySQL
+<p>Languages: HTML, CSS, Javascript, SQL</p>
+<p>Framework-and-Tools: Express, Handlebars, Body-Parser, MySQL</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
